@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "whopaybills",
+    "slug": "whopaybills",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "whopaybills"
+}
