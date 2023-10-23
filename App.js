@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import {React, useContext} from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { MyContext } from './src/context/context';
-import StageOne from './src/components/StageTwo';
-import StageTwo from './src/components/StageOne';
+import StageOne from './src/components/StageOne';
+import StageTwo from './src/components/StageTwo';
 
 
 

@@ -10,4 +10,4 @@ export default function StageTwo() {
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

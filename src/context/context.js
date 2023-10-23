@@ -4,7 +4,7 @@ const MyContext = createContext();
 
 const MyContextProvider = ({ children }) => {
   const [state, setState] = useState({
-    stage: 2,
+    stage: 1,
     players: [],
     result: ''
   });
@@ -23,8 +23,23 @@ const MyContextProvider = ({ children }) => {
     setState({ players: newArray });
   }
 
+  nextHandler = ()=>{
+    const players = state.players;
+    if(players.length <2){
+      alert('Error');
+    }else{
+      setState((prevState)=>({...prevState,stage:2}));
+    }
+    
+  }
+
   return (
-    <MyContext.Provider value={{ state, addPlayer: addPlayerHandler, removePlayer: removePlayerHandler }}>
+    <MyContext.Provider value={{ 
+      state,
+       addPlayer: addPlayerHandler,
+        removePlayer: removePlayerHandler,
+        nextHandler: nextHandler
+        }}>
       {children}
     </MyContext.Provider>
   );
