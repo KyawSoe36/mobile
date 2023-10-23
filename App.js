@@ -12,15 +12,18 @@ export default function App() {
 
   return (
     <ScrollView>
-    
+    <View style={styles.container}>
+
+    {console.log("Logging ",context.state)}
     {
-            context.stateContext.stage === 1 ?
+
+            context.state.stage === 1 ?
               <StageOne/>
             :
              <StageTwo/>
 
           }  
-
+    </View>
     </ScrollView>
   );
 }
@@ -31,5 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop:80
+    
   },
 });
