@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import Toast from 'react-native-toast-message';
 
 const MyContext = createContext();
 
@@ -23,23 +24,27 @@ const MyContextProvider = ({ children }) => {
     setState({ players: newArray });
   }
 
-  nextHandler = ()=>{
+  nextHandler = () => {
     const players = state.players;
-    if(players.length <2){
-      alert('Error');
-    }else{
-      setState((prevState)=>({...prevState,stage:2}));
+    if (players.length < 2) {
+      Toast.show({
+        type: 'success',
+        text1: 'Hello',
+        text2: 'This is some something 👋'
+      });
+    } else {
+      setState((prevState) => ({ ...prevState, stage: 2 }));
     }
-    
+
   }
 
   return (
-    <MyContext.Provider value={{ 
+    <MyContext.Provider value={{
       state,
-       addPlayer: addPlayerHandler,
-        removePlayer: removePlayerHandler,
-        nextHandler: nextHandler
-        }}>
+      addPlayer: addPlayerHandler,
+      removePlayer: removePlayerHandler,
+      nextHandler: nextHandler
+    }}>
       {children}
     </MyContext.Provider>
   );

@@ -1,11 +1,13 @@
 import { registerRootComponent } from 'expo';
 import { MyContextProvider } from './src/context/context';
+import Toast from 'react-native-toast-message';
 
 import App from './App';
 
 const provider = () =>(
     <MyContextProvider>
         <App/>
+        <Toast />
     </MyContextProvider>
 )
 
