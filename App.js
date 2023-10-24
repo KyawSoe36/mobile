@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {React, useContext} from 'react';
+import { React, useContext } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { MyContext } from './src/context/context';
 import StageOne from './src/components/StageOne';
@@ -12,18 +12,18 @@ export default function App() {
 
   return (
     <ScrollView>
-    <View style={styles.container}>
+      <View style={styles.container}>
 
-    {console.log("Logging ",context.state)}
-    {
+        {console.log("Logging ", context.state)}
+        {
 
-            context.state.stage === 1 ?
-              <StageOne/>
+          context.state.stage === 1 ?
+            <StageOne />
             :
-             <StageTwo/>
+            <StageTwo />
 
-          }  
-    </View>
+        }
+      </View>
     </ScrollView>
   );
 }
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:80
-    
+    marginTop: 80
+
   },
 });

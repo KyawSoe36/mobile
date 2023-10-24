@@ -84,6 +84,7 @@ export default function StageOne() {
                 title="Get the looser"
                 onPress={() => context.nextHandler()}
               />
+
             </>
             : null
         }

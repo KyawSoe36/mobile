@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import Toast from 'react-native-toast-message';
 
 const MyContext = createContext();
@@ -6,12 +6,11 @@ const MyContext = createContext();
 const MyContextProvider = ({ children }) => {
   const [state, setState] = useState({
     stage: 1,
-    players: [],
+    players: ['Test1', 'Test2', 'Test3'],
     result: ''
   });
 
   const addPlayerHandler = (name) => {
-    console.log("Add player handler", name);
     setState((prevState) => ({
       ...prevState,
       players: [...prevState.players, name]
@@ -25,7 +24,7 @@ const MyContextProvider = ({ children }) => {
   }
 
   nextHandler = () => {
-    const players = state.players;
+    const { players } = state;
     if (players.length < 2) {
       Toast.show({
         type: 'success',
@@ -38,12 +37,35 @@ const MyContextProvider = ({ children }) => {
 
   }
 
+  generateLooser = () => {
+    const { players } = state;
+    setState((prevState) => ({
+      ...prevState, result: players[Math.floor(Math.random() * players.length)]
+    }));
+  }
+
+  useEffect(() => {
+    if (state.stage === 2) {
+      generateLooser();
+    }
+  }, [state.stage]);
+
+  resetGame = () => {
+    setState({
+      stage: 1,
+      players: ['Test1', 'Test2', 'Test3'],
+      result: ''
+    })
+  }
+
   return (
     <MyContext.Provider value={{
       state,
       addPlayer: addPlayerHandler,
       removePlayer: removePlayerHandler,
-      nextHandler: nextHandler
+      nextHandler: nextHandler,
+      resetGame: resetGame,
+      getNewLooser: generateLooser,
     }}>
       {children}
     </MyContext.Provider>

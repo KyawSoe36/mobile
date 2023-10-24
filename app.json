@@ -5,7 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "d2fa3147-dcf3-42e0-a07d-d25ddfa09edd"
+      }
+    }
   },
   "name": "whopaybills"
 }
