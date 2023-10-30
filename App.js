@@ -4,15 +4,10 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { MyContext } from './src/context/context';
 import StageOne from './src/components/StageOne';
 import StageTwo from './src/components/StageTwo';
-import { useFonts } from '@expo-google-fonts/pacifico';
 
 
 
 export default function App() {
-  let [fontsLoaded] = useFonts({
-    'Pacifico-Regular': require('./src/assets/fonts/Pacifico-Regular.ttf'), // Adjust the path to your font file
-  });
-
   const context = useContext(MyContext);
 
   return (
