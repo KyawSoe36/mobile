@@ -15,7 +15,8 @@ function MyStack() {
 
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Details" component={Details} />
+        <Stack.Screen name="Details" component={Details}  
+        initialParams={{ itemId: 123 }} />
       </Stack.Navigator>
   );
 }
