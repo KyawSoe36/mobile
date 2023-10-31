@@ -53,5 +53,41 @@ export const  Currency = [
       flag: '🎰',
       symbol: '₿',
     },
+    {
+      name: 'FRANK',
+      value: 1.00905,
+      flag: '🇨🇭',
+      symbol: '₣',
+    },
+    {
+      name: 'PESO ARGENTINO',
+      value: 0.006072,
+      flag: '🇦🇷',
+      symbol: '$',
+    },
+    {
+      name: 'SINGAPORE DOLLAR',
+      value: 0.015167,
+      flag: '🇸🇬',
+      symbol: 'S$',
+    },
+    {
+      name: 'SWEDISH KRONA',
+      value: 0.109012,
+      flag: '🇸🇪',
+      symbol: 'kr',
+    },
+    {
+      name: 'SOUTH AFRICAN RAND',
+      value: 0.165618,
+      flag: '🇿🇦',
+      symbol: 'R',
+    },
+    {
+      name: 'EMIRATI DIRHAM',
+      value: 0.045049,
+      flag: '🇦🇪',
+      symbol: 'د.إ',
+    },
   ];
   
