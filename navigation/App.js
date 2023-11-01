@@ -13,18 +13,17 @@ const Stack = createNativeStackNavigator();
 function MyStack() {
   return (
 
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Details" component={Details}  
-        initialParams={{ itemId: 123 }} />
-      </Stack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Details" component={Details} />
+    </Stack.Navigator>
   );
 }
 
 export default function App() {
   return (
     <NavigationContainer>
-        <MyStack />
+      <MyStack />
     </NavigationContainer>
 
   );
