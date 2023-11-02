@@ -1,8 +1,9 @@
+import React, { useEffect, useState } from 'react'
 import { ID, Account, Client } from 'appwrite'
 import Config from 'react-native-config'
 
-import Snackbar from 'react-native-snackbar'
-import { useEffect, useState } from 'react'
+// import Snackbar from 'react-native-snackbar'
+
 
 const appwriteClient = new Client()
 
@@ -10,7 +11,7 @@ const API_ENDPOINT = Config.API_ENDPOINT
 const PROJECT_ID = Config.PROJECT_ID
 
 function AppwriteService() {
-  const [account, setAccount] = useState(null)
+  const [account, setAccount] = useState()
 
   useEffect(() => {
     appwriteClient
@@ -35,10 +36,10 @@ function AppwriteService() {
         return userAccount
       }
     } catch (error) {
-      Snackbar.show({
-        text: String(error),
-        duration: Snackbar.LENGTH_LONG
-      })
+      // Snackbar.show({
+      //   text: String(error)
+      //   // duration: Snackbar.LENGTH_LONG
+      // })
       console.log("Appwrite service :: createAccount() :: " + error)
     }
   }
@@ -47,10 +48,10 @@ function AppwriteService() {
     try {
       return await account.createEmailSession(email, password)
     } catch (error) {
-      Snackbar.show({
-        text: String(error),
-        duration: Snackbar.LENGTH_LONG
-      })
+      // Snackbar.show({
+      //   text: String(error)
+      //   // duration: Snackbar.LENGTH_LONG
+      // })
       console.log("Appwrite service :: loginAccount() :: " + error)
     }
   }
