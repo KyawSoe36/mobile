@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 //react native elements
 import { FAB } from '@rneui/themed'
 //Snackbar
@@ -11,8 +11,24 @@ const Home = () => {
   const [userData, setUserData] = useState()
 
   const handleLogout = () => {
-
+    appwrite.logout()
+      .then(() => {
+        setIsLoggedIn(false);
+      })
   }
+
+  useEffect(() => {
+    appwrite.getCurrentUser()
+      .then(response => {
+        if (response) {
+          const user = {
+            name: response.name,
+            email: response.email
+          }
+          setUserData(user)
+        }
+      })
+  }, [appwrite])
 
 
 

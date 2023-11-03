@@ -1,13 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
+
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Router } from './src/routes/Router';
+import { MyProvider } from './src/context/AuthContext';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <MyProvider>
       <Router></Router>
-    </View>
+    </MyProvider>
+
   );
 }
 

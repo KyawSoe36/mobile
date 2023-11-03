@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native'
-import React, { useContext, useEffect, useState } from 'react'
+
+import React, { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import Loading from '../components/Loading';
 
@@ -7,11 +7,10 @@ import Loading from '../components/Loading';
 import { AuthStack } from './AuthStack';
 import { AppStack } from './AppStack';
 
-
 export const Router = () => {
-    const [isLoading, setIsLoading] = useState(true)
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
 
+    const [isLoading, setIsLoading] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     if (isLoading) {
         return <Loading />

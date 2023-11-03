@@ -1,28 +1,45 @@
 import { StyleSheet, Text, View, KeyboardAvoidingView, TextInput, Pressable, Platform } from 'react-native'
 import React, { useContext, useState } from 'react'
-
 //react native elements
 import { FAB } from '@rneui/themed'
-//Snackbar
-// import Snackbar from 'react-native-snackbar'
 
 
 // Navigation
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-
-
+import { MyContext } from '../context/AuthContext';
 
 const Login = ({ navigation }) => {
 
 
-    const [error, setError] = useState('');
+    const { appwrite, setIsLoggedIn } = useContext(MyContext);
+    console.log("get context for the application", useContext(MyContext));
 
+    const [error, setError] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-
     const handleLogin = () => {
+        if (email.length < 1 || password.length < 1) {
+            setError('All fields are required')
+        } else {
+            const user = {
+                email,
+                password
+            }
+            appwrite
+                .login(user)
+                .then((response) => {
+                    if (response) {
+                        console.log("Login response",response);
+                        setIsLoggedIn(true);
+                    }
+                })
+                .catch(e => {
+                    console.log(e);
+                    setEmail('Incorrect email or password')
 
+                })
+        }
     }
 
     return (
