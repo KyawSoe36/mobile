@@ -1,19 +1,19 @@
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState,useEffect,useContext } from 'react'
 //react native elements
 import { FAB } from '@rneui/themed'
-//Snackbar
+import { MyContext } from '../context/AuthContext'
 
-
-
-const Home = () => {
+const Home = ({navigation}) => {
 
   const [userData, setUserData] = useState()
+  const { appwrite, setIsLoggedIn } = useContext(MyContext);
 
   const handleLogout = () => {
     appwrite.logout()
       .then(() => {
         setIsLoggedIn(false);
+        navigation.navigate('Login')
       })
   }
 
@@ -29,8 +29,6 @@ const Home = () => {
         }
       })
   }, [appwrite])
-
-
 
 
   return (

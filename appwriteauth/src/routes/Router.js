@@ -3,9 +3,13 @@ import React, { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import Loading from '../components/Loading';
 
-//Routes
-import { AuthStack } from './AuthStack';
-import { AppStack } from './AppStack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Home from '../screens/Home'
+import Login from '../screens/Login'
+import Signup from '../screens/Signup'
+
+
+const Stack = createNativeStackNavigator();
 
 export const Router = () => {
 
@@ -18,7 +22,15 @@ export const Router = () => {
 
     return (
         <NavigationContainer>
-            {isLoggedIn ? <AppStack /> : <AuthStack />}
+            <Stack.Navigator initialRouteName="Login"
+                screenOptions={{
+                    headerTitleAlign: 'center',
+                    headerBackTitleVisible: false,
+                }}>
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="Signup" component={Signup} />
+                <Stack.Screen name='Home' component={Home} />
+            </Stack.Navigator>
         </NavigationContainer>
     )
 }

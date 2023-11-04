@@ -8,8 +8,6 @@ const MyContext = createContext();
 
 const MyProvider = ({ children }) => {
 
-    console.log("Check auth service", AppwriteService().getCurrentUser());
-
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const value = {

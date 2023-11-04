@@ -46,6 +46,7 @@ const SignUp = ({ navigation }) => {
         .then((response) => {
           if (response) {
             setIsLoggedIn(true)
+            navigation.navigate('Home')
           }
         })
         .catch(e => {
